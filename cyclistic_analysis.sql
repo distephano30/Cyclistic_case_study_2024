@@ -1,18 +1,9 @@
-select * from trip_data
-where end_lat is null
 
--- cleaning process 
--- delete rows where the end station value is null. 
-delete from trip_data 
+-- cleaning process
+-- delete rows where the end station value is null.
+delete from trip_data
 where end_lat is null or end_lng is null
 
-select 
-distinct extract(isodow from started_at) as day_of_week
-from trip_data 
-
-select (ended_at - started_at) as ride_duration
-from trip_data
-order by ride_duration desc
 
 -- ride count by user
 select count(ride_id), member_casual
@@ -42,7 +33,7 @@ order by Total_ride desc
 limit 15
 
 -- Ride count by month and user type
-select extract (month from started_at) as month, 
+select extract (month from started_at) as month,
 	case when extract (month from started_at) = 1 then 'January'
 	when extract (month from started_at) = 2 then 'February'
 	when extract (month from started_at) = 3 then 'March'
@@ -56,14 +47,14 @@ select extract (month from started_at) as month,
 	when extract (month from started_at) = 11 then 'November'
 	when extract (month from started_at) = 12 then 'December'
 	end the_month,
-member_casual, 
+member_casual,
 count(ride_id) as Total_ride
 from trip_data
 group by month, member_casual
 order by month
 
 -- average ride duration by month and user type
-select extract (month from started_at) as month, 
+select extract (month from started_at) as month,
 	case when extract (month from started_at) = 1 then 'January'
 	when extract (month from started_at) = 2 then 'February'
 	when extract (month from started_at) = 3 then 'March'
@@ -77,14 +68,14 @@ select extract (month from started_at) as month,
 	when extract (month from started_at) = 11 then 'November'
 	when extract (month from started_at) = 12 then 'December'
 	end the_month,
-member_casual, 
+member_casual,
 avg(ended_at - started_at) as Average_ride_duration
 from trip_data
 group by month, member_casual
 order by Average_ride_duration desc
 
 -- average ride duration by month and user type and bike
-select extract (month from started_at) as month, 
+select extract (month from started_at) as month,
 	case when extract (month from started_at) = 1 then 'January'
 	when extract (month from started_at) = 2 then 'February'
 	when extract (month from started_at) = 3 then 'March'
@@ -99,31 +90,29 @@ select extract (month from started_at) as month,
 	when extract (month from started_at) = 12 then 'December'
 	end the_month,
 rideable_type,
-member_casual, 
+member_casual,
 avg(ended_at - started_at) as Average_ride_duration
 from trip_data
 group by month, rideable_type, member_casual
 order by Average_ride_duration desc
 
 -- average ride duration by user type
-select member_casual, 
+select member_casual,
 avg(ended_at - started_at) as Average_ride_duration
 from trip_data
 group by member_casual
 order by Average_ride_duration desc
 
 -- average ride duration by user type and bike
-select rideable_type, member_casual, 
+select rideable_type, member_casual,
 avg(ended_at - started_at) as Average_ride_duration
 from trip_data
 group by rideable_type, member_casual
 order by Average_ride_duration desc
 
 -- average ride duration by user type by day
-select extract(isodow from started_at) as day_of_week, member_casual, 
+select extract(isodow from started_at) as day_of_week, member_casual,
 avg(ended_at - started_at) as Average_ride_duration
 from trip_data
 group by member_casual, day_of_week
 order by Average_ride_duration desc
-
-select * from trip_data
