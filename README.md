@@ -70,7 +70,8 @@ Casuals ride last way more longer than members
 
 Casuals ride for an average of 28:13
 Members ride for an average of 12:31
-![image](https://github.com/distephano30/Cyclistic_case_study_2024/assets/9010976/e9190e80-c39d-4479-8586-94117f8de507)
+![Average ride time ](https://github.com/distephano30/Cyclistic_case_study_2024/assets/9010976/72b2ba9f-3d7a-4e3f-8e8c-e352abfc2fef)
+
 
 
 Bike used by customer
