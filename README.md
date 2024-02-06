@@ -28,7 +28,8 @@ No price data
 
 As we don’t have the casual ride nor annual membership prices, we couldn’t evaluate the outcome of having membership compare to casual for the whole year.
 
-# No distinct user info 
+No distinct user info 
+
 We have data for all ride in 2023 but we couldn’t figure out how many user exactly went for those rides
 
 
