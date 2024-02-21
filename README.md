@@ -34,7 +34,7 @@ We have data for all ride in 2023 but we couldn’t figure out how many user exa
 
 
 # Cleaning process
-In a spreadsheet, I looked for duplicate, there was none. I converted all the date field to the same format. In postgresql I removed any row that had an empty end_station or end gps coordiante field. 
+In a spreadsheet, I looked for duplicate, there was none. I converted all the date field to the same format. In postgresql I removed any row that had an empty end_station or end gps coordinate field. 
 
 
 # Data analysis
